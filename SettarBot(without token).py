@@ -52,18 +52,18 @@ async def timeout(ctx, member: discord.Member, duration: int, *, reason=None):
 
         await member.timeout(timeout_duration, reason=reason)
 
-        await ctx.send(f"{member.mention} has been timed out for {duration} seconds. Reason: {reason}")
+        await ctx.send(f"{member.mention} susturuldu {duration} saniye boyunca. Sebep: {reason}")
 
     except discord.Forbidden:
-        await ctx.send("I do not have permission to timeout this member.")
+        await ctx.send("Yetkim yok")
         print("Permission error: Forbidden")
 
     except discord.HTTPException as e:
-        await ctx.send(f"An error occurred: {e}")
+        await ctx.send(f"Hata: {e}")
         print(f"HTTP Exception: {e}")
 
     except Exception as e:
-        await ctx.send(f"An unexpected error occurred: {e}")
+        await ctx.send(f"Hata: {e}")
         print(f"Unexpected Error: {e}")
 
 @bot.command(pass_context = True)
@@ -94,7 +94,7 @@ async def sex(ctx, user: discord.Member, *, message=None):
     embed = discord.Embed(title=message)
     try:
         await user.send(embed=embed)
-        await ctx.send(f"Mesaj  {user.display_name} gitti.")
+        await ctx.send(f"{user.display_name} halledildi __--__ ")
     except discord.Forbidden:
         await ctx.send("Dm'si açık değil aptalın.")
 
