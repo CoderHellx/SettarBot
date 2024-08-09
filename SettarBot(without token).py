@@ -6,6 +6,9 @@ import requests
 from discord import member
 from discord.ext.commands import has_permissions, MissingPermissions
 import os
+import asyncio
+import datetime as dt
+from discord.ext.commands import bot
 
 intents = discord.Intents.default()
 intents.members = True
@@ -77,7 +80,6 @@ async def rr (ctx):
     else:
         await ctx.send("Bu komutun çalışması için benim bir sesli sohbette olmam lazım.")
 
-#SettarBotKevser
 @bot.command(pass_context = True)
 async def kevser (ctx):
     if (ctx.author.voice):
@@ -98,7 +100,7 @@ async def çık(ctx):
         await ctx.guild.voice_client.disconnect()
     else:
         await ctx.send("Bu komutun çalışması için benim bir sesli sohbette olmam lazım.")
-
+#dm
 @bot.command()
 async def sex(ctx, user: discord.Member, *, message=None):
     if message is None:
@@ -106,10 +108,14 @@ async def sex(ctx, user: discord.Member, *, message=None):
     embed = discord.Embed(title=message)
     try:
         await user.send(embed=embed)
-        await ctx.send(f"{user.display_name} halledildi __--__ ")
+        await ctx.send(f"{user.display_name} , halledildi __--__ ")
     except discord.Forbidden:
         await ctx.send("Dm'si açık değil aptalın.")
+#image
+@bot.command(pass_context = True)
+async def tip5(ctx):
+    await ctx.send(file=discord.File('makeitmeme_3r11F.png'))
 
-token =
+token = 
 
 bot.run(token)
