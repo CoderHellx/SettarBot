@@ -77,6 +77,18 @@ async def rr (ctx):
     else:
         await ctx.send("Bu komutun çalışması için benim bir sesli sohbette olmam lazım.")
 
+#SettarBotKevser
+@bot.command(pass_context = True)
+async def kevser (ctx):
+    if (ctx.author.voice):
+        channel = ctx.message.author.voice.channel
+        await ctx.send("İman Time")
+        voice = await channel.connect()
+        source = FFmpegPCMAudio("Kevser suresi HIZLI OKUNUŞ HD KALİTE.mp3")
+        player = voice.play(source)
+    else:
+        await ctx.send("Bu komutun çalışması için benim bir sesli sohbette olmam lazım.")
+
 #SettarBotJoinandLeave
 @bot.command(pass_context = True)
 async def çık(ctx):
