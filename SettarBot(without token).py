@@ -90,7 +90,7 @@ async def command_name (ctx):
         source = FFmpegPCMAudio("A voice file")
         player = voice.play(source)
     else:
-        await ctx.send("Bu komutun çalışması için benim bir sesli sohbette olmam lazım.")
+        await ctx.send('')
 
 #SettarBotLeave
 @bot.command(pass_context = True)
