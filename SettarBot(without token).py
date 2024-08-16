@@ -27,95 +27,96 @@ async def on_message(message):
     if message.author == bot.user:
         return
 
-
-    if message.content.lower().startswith("?nasılsın"):
-        await message.channel.send('Kötü , konuşmaya çalıştığım 1237. kız beni terk etti.')
-    elif message.content.lower().startswith("?yüzme nasıl"):
-        await message.channel.send('İyi , Medipol %50 burs veriyor.')
-    elif message.content.lower().startswith("?instanı alabilir miyim"):
-        await message.channel.send('İnsta kapalı olmaz.')
-    elif message.content.lower().startswith("?tiktokunu alabilir miyim"):
-        await message.channel.send('olur tiktokum ---> https://www.tiktok.com/@yigit_evgulu')
-    elif message.content.lower().startswith("?ytni alabilir miyim"):
-        await message.channel.send('olur ytem ---> https://www.youtube.com/@yse9886')
-    elif message.content.lower().startswith("?sag ol"):
-        await message.channel.send('Sıkıntı yok bir daha gacı mevzusu aç yeter.')
-    elif message.content.lower().startswith("?help"):
-        await message.channel.send(
-            "Anlık Komutlarım: \n1.?help(yardım)\n2.?nasılsın\n3.?yüzme nasıl\n4.?instanı alabilir miyim\n5.?tiktokunu alabilir miyim\n6.?ytni alabilir miyim")
+    if message.content.lower().startswith(''):
+        await message.channel.send('')
+    elif message.content.lower().startswith(''):
+        await message.channel.send('')
+    elif message.content.lower().startswith(''):
+        await message.channel.send('')
+    elif message.content.lower().startswith(''):
+        await message.channel.send('')
+    elif message.content.lower().startswith(''):
+        await message.channel.send('')
+    elif message.content.lower().startswith(''):
+        await message.channel.send('')
+    elif message.content.lower().startswith(''):
+        await message.channel.send('')
+            
 
     await bot.process_commands(message)
 
 #SettarBotTimeout
-@bot.command(name="ssh")
+@bot.command(name="Any command name of your choice")
 @commands.has_permissions(moderate_members=True)
-async def timeout(ctx, member: discord.Member, duration: int, *, reason=None):
+async def command_name (ctx, member: discord.Member, duration: int, *, reason=None):
     try:
         timeout_duration = timedelta(seconds=duration)
 
         await member.timeout(timeout_duration, reason=reason)
 
-        await ctx.send(f"{member.mention} susturuldu {duration} saniye boyunca. Sebep: {reason}")
+        await ctx.send(f"{member.mention} muted for {duration} seconds. Reason: {reason}")
 
     except discord.Forbidden:
-        await ctx.send("Yetkim yok")
+        await ctx.send('I do not have permission')
         print("Permission error: Forbidden")
 
     except discord.HTTPException as e:
-        await ctx.send(f"Hata: {e}")
+        await ctx.send(f"Error: {e}")
         print(f"HTTP Exception: {e}")
 
     except Exception as e:
-        await ctx.send(f"Hata: {e}")
+        await ctx.send(f"Error: {e}")
         print(f"Unexpected Error: {e}")
 
+#SettarBotVoiceChatAudioFiles
 @bot.command(pass_context = True)
-async def rr (ctx):
+async def command_name (ctx):
     if (ctx.author.voice):
         channel = ctx.message.author.voice.channel
-        await ctx.send("Geliyorum Gacılar!!!")
+        await ctx.send('')
         voice = await channel.connect()
-        source = FFmpegPCMAudio("Rick-Roll-Sound-Effect.wav")
+        source = FFmpegPCMAudio("A voice file")
+        player = voice.play(source)
+    else:
+        await ctx.send('')
+
+#SettarBotVoiceChatAudioFiles2
+@bot.command(pass_context = True)
+async def command_name (ctx):
+    if (ctx.author.voice):
+        channel = ctx.message.author.voice.channel
+        await ctx.send('')
+        voice = await channel.connect()
+        source = FFmpegPCMAudio("A voice file")
         player = voice.play(source)
     else:
         await ctx.send("Bu komutun çalışması için benim bir sesli sohbette olmam lazım.")
 
+#SettarBotLeave
 @bot.command(pass_context = True)
-async def kevser (ctx):
-    if (ctx.author.voice):
-        channel = ctx.message.author.voice.channel
-        await ctx.send("İman Time")
-        voice = await channel.connect()
-        source = FFmpegPCMAudio("Kevser suresi HIZLI OKUNUŞ HD KALİTE.mp3")
-        player = voice.play(source)
-    else:
-        await ctx.send("Bu komutun çalışması için benim bir sesli sohbette olmam lazım.")
-
-#SettarBotJoinandLeave
-@bot.command(pass_context = True)
-async def çık(ctx):
+async def command_name(ctx):
     if (ctx.voice_client):
         channel = ctx.message.author.voice.channel
-        await ctx.send("Gacı Yokmus Ya")
+        await ctx.send('')
         await ctx.guild.voice_client.disconnect()
     else:
-        await ctx.send("Bu komutun çalışması için benim bir sesli sohbette olmam lazım.")
-#dm
+        await ctx.send('')
+#SettarBotPersonalMessage
 @bot.command()
-async def sex(ctx, user: discord.Member, *, message=None):
+async def command_name(ctx, user: discord.Member, *, message=None):
     if message is None:
-        message = "Saat? , Mekan?"
+        message = "Your message"
     embed = discord.Embed(title=message)
     try:
         await user.send(embed=embed)
-        await ctx.send(f"{user.display_name} , halledildi __--__ ")
+        await ctx.send(f"{user.display_name}")
     except discord.Forbidden:
-        await ctx.send("Dm'si açık değil aptalın.")
-#image
+        await ctx.send('')
+#SettarBotImage
 @bot.command(pass_context = True)
-async def tip5(ctx):
-    await ctx.send(file=discord.File('makeitmeme_3r11F.png'))
+async def command_name(ctx):
+    await ctx.send(file=discord.File('Your image'))
 
-token = 
+token = "Your token"
 
 bot.run(token)
