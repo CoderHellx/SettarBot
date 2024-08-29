@@ -2,12 +2,6 @@ import discord
 from discord.ext import commands
 from datetime import timedelta
 from discord import FFmpegPCMAudio
-import requests
-from discord import member
-from discord.ext.commands import has_permissions, MissingPermissions
-import os
-import asyncio
-import datetime as dt
 from discord.ext.commands import bot
 
 intents = discord.Intents.default()
